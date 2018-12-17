@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../static')));
 
-app.use('/', router);
+// app.use('/', router);
 
 app.listen(PORT, err => {
   console.log('Server is listening to port: ', PORT);
