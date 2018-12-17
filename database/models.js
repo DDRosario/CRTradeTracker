@@ -1,13 +1,25 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
 
+// card preference 1 is keep, 2 is give away 0 is not filled in yet
+
+const cardSchema = mongoose.Schema({
+  name: String,
+  count: Number,
+  iconUrl: String,
+  rarity: String,
+  preference: Number
+});
 const userSchema = mongoose.Schema({
   tag: String,
-  name: String
+  name: String,
+  cards: [cardSchema]
 });
 
+const Card = mongoose.model('Card', cardSchema);
 const User = mongoose.model('User', userSchema);
-module.exports = { User };
+module.exports = { User, Card };
+
 /* example data set!
 
 {
